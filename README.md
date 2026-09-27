@@ -240,3 +240,15 @@ uvicorn backend.main:app --reload
 - Model size/accuracy tradeoff page in the UI (nano vs. small vs. medium
   YOLO variants) if this becomes a teaching tool rather than just a demo.
 - Rate limiting if ever exposed beyond local/portfolio use.
+
+---
+
+## Author
+
+**Khalil Lamrabet**
+
+Engineering Student — Big Data & Artificial Intelligence
+
+- GitHub: [@Xerow42](https://github.com/Xerow42)
+- LinkedIn: [khalillam12](https://www.linkedin.com/in/khalillam12/)
+- Email: [klamrabeta19@gmail.com](mailto:klamrabeta19@gmail.com)
