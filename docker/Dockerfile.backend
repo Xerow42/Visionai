@@ -1,0 +1,21 @@
+FROM python:3.12-slim
+
+# opencv/torch need these system libs even with headless wheels
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    libgl1 libglib2.0-0 \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
+
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY backend/ ./backend/
+
+ENV PYTHONUNBUFFERED=1
+# First run downloads YOLO26n weights (needs network); subsequent runs
+# reuse the cached file if a volume is mounted -- see docker-compose.yml.
+ENV VISIONAI_MODEL_BACKEND=yolo
+
+EXPOSE 8000
+CMD ["uvicorn", "backend.main:app", "--host", "0.0.0.0", "--port", "8000"]

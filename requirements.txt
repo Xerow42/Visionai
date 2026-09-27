@@ -1,0 +1,24 @@
+# Backend API
+fastapi==0.115.0
+uvicorn[standard]==0.30.6
+python-multipart==0.0.9
+
+# Computer vision / inference
+# NOTE: do not also pin opencv-python-headless here. `ultralytics` already
+# depends on opencv-python itself; installing both packages side by side
+# has been observed to install two different, incompatible OpenCV major
+# versions at once and silently break cv2 (e.g. cv2.CascadeClassifier
+# going missing). Let ultralytics manage its own OpenCV dependency.
+# If you specifically need a headless server install (no display, e.g. a
+# cloud VM/CI), use `pip install ultralytics-opencv-headless` instead of
+# `ultralytics`, per Ultralytics' own docs -- don't add opencv-python-headless
+# on top of a normal `ultralytics` install.
+ultralytics>=8.3.203  # first version with reliable yolo26n.pt asset resolution;
+                       # if yolo26n.pt still 404s as a local-file lookup
+                       # instead of downloading, run: pip install --upgrade ultralytics
+numpy==2.1.3
+pillow==11.0.0
+
+# Tests
+pytest==8.3.3
+httpx==0.27.2
