@@ -25,6 +25,10 @@ a polished frontend — not training a model from scratch.
 - Structured error responses — never a raw stack trace to the client.
 - Model loaded once at backend startup, not per request.
 
+- ## Interface&testing
+
+![Image detection](/test.png)
+
 ## Architecture
 
 ```
